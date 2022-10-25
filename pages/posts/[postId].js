@@ -10,7 +10,7 @@ const PostId = ({ post }) => (
 );
 
 export default PostId;
-
+// Static Paths
 export async function getStaticPaths() {
   return {
     paths: [
