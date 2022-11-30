@@ -24,7 +24,6 @@ const Dashboard = (props) => {
       <h2>Following - {dashboardData.following}</h2>
     </div>
   )
-
 }
 
 export default Dashboard;
