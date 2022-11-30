@@ -16,7 +16,10 @@ const ArticleListByCategory = ({articles, category}) => {
 export default ArticleListByCategory;
 
 export async function getServerSideProps(context) {
-  const {params: {category}} = context
+  const {params: {category}, req, res, query} = context
+  console.log(req.headers.cookie)
+  console.log(query)
+  res.setHeader('Set-Cookie', ['name=Nextjs'])
   const data = await (await fetch(`http://localhost:4000/news?category=${category}`)).json()
   return {
     props: {articles: data, category}
