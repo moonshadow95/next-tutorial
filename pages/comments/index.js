@@ -20,6 +20,16 @@ const CommentPage = (props) => {
     ).json();
     console.log(data);
   };
+
+  const deleteComment = async (commentId) => {
+    const data = await (
+      await fetch(`/api/comments/${commentId}`, {
+        method: 'DELETE',
+      })
+    ).json();
+    console.log(data);
+    fetchComments();
+  };
   return (
     <>
       <input
@@ -32,6 +42,7 @@ const CommentPage = (props) => {
       {comments.map((comment) => (
         <div key={comment.id}>
           {comment.id} {comment.text}
+          <button onClick={() => deleteComment(comment.id)}>Delete</button>
         </div>
       ))}
     </>
