@@ -19,3 +19,17 @@ export default function handler(req, res) {
     res.status(200).json(deletedComment);
   }
 }
+
+export async function getStaticProps(context) {
+  const { params } = context;
+  const { commentId } = params;
+  const comment = comments.find(
+    (comment) => comment.id === parseInt(commentId)
+  );
+  console.log(comment);
+  /** Don't do this 
+      const data = await (await fetch(`http://localhost:3000/api/comments/${commentId}`)).json();
+  */
+
+  return {};
+}
