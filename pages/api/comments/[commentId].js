@@ -31,5 +31,5 @@ export async function getStaticProps(context) {
       const data = await (await fetch(`http://localhost:3000/api/comments/${commentId}`)).json();
   */
 
-  return {};
+  return { props: { comment } };
 }
